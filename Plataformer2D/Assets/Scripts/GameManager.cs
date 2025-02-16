@@ -1,0 +1,41 @@
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using Ebac.Core.Singleton;
+using DG.Tweening;
+
+public class GameManager : Singleton<GameManager>
+{
+    [Header("Player")]
+    public GameObject playerPrefab;
+
+    [Header("Player")]
+    public List<GameObject> enemiess;
+
+    [Header("Player")]
+    public Transform startPoint;
+
+    [Header("Animation")]
+    public float duration = .2f;
+    public float delay = .05f;
+    public Ease ease = Ease.OutBack;
+
+    private GameObject _CurrentPlayer;
+
+    private void Start()
+    {
+        Init(); 
+    }
+
+    public void Init()
+    {
+        SpawnPlayer();
+    }
+
+    private void SpawnPlayer()
+    {
+        _CurrentPlayer = Instantiate(playerPrefab);
+        _CurrentPlayer.transform.position = startPoint.transform.position;
+        _CurrentPlayer.transform.DOScale(0, duration).SetEase(ease).From();
+    }
+}
