@@ -719,13 +719,14 @@ MonoBehaviour:
   frictions: {x: -0.3, y: 0}
   speed: -10
   speedRun: -20
-  forceJump: 15
-  jumpScaleY: 1.5
+  forceJump: 25
+  jumpScaleY: 1.2
   jumpScaleX: 0.7
   animationDuration: 0.3
   ease: 27
   BoolRun: Run
   animator: {fileID: 919120673}
+  playerSwipeDuration: 0.1
 --- !u!114 &838748547
 MonoBehaviour:
   m_ObjectHideFlags: 0
