@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ProjectileBase : MonoBehaviour
+{
+
+    public Vector3 direction;
+
+    public float TimeToDestroy = 2f;
+
+    public float side = 1;
+
+    public int damageAmount = 1;
+
+    private void Awake()
+    {
+        Destroy(gameObject, TimeToDestroy);
+    }
+
+    private void Update()
+    {
+        transform.Translate(direction * Time.deltaTime * side);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var enemey = collision.transform.GetComponent<EnemyBase>();
+
+        if (enemey != null )
+        {
+            enemey.damage(damageAmount);
+            Destroy(gameObject);
+        }
+    }
+
+}
