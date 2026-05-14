@@ -2178,6 +2178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 838748542}
+  healthBase: {fileID: 838748547}
   frictions: {x: -0.3, y: 0}
   speed: -10
   speedRun: -20
@@ -2187,6 +2188,7 @@ MonoBehaviour:
   animationDuration: 0.3
   ease: 27
   BoolRun: Run
+  triggerDeath: Death
   animator: {fileID: 919120673}
   playerSwipeDuration: 0.1
 --- !u!114 &838748547
@@ -2202,7 +2204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLife: 10
-  DestroyOnKill: 1
+  DestroyOnKill: 0
   delayToKill: 1
   _flashColor: {fileID: 1262093667}
 --- !u!1001 &850156614
@@ -2559,7 +2561,9 @@ MonoBehaviour:
   Damage: 10
   animator: {fileID: 1169951715}
   triggerAttack: Attack
+  triggerKill: Death
   healthBase: {fileID: 1003024592}
+  TimeToDestroy: 1
 --- !u!4 &1003024590
 Transform:
   m_ObjectHideFlags: 0
@@ -2616,7 +2620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLife: 10
-  DestroyOnKill: 1
+  DestroyOnKill: 0
   delayToKill: 0
   _flashColor: {fileID: 0}
 --- !u!114 &1003024593
@@ -3876,6 +3880,19 @@ MonoBehaviour:
   - {fileID: 1831938935}
   color: {r: 0.9924528, g: 0.5149519, b: 0.5149519, a: 1}
   duration: 0.1
+--- !u!114 &1262093668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262093665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40badb7ff25163f46a569d4887d0b7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 838748546}
 --- !u!1 &1267248445
 GameObject:
   m_ObjectHideFlags: 0
@@ -4481,7 +4498,9 @@ MonoBehaviour:
   Damage: 10
   animator: {fileID: 0}
   triggerAttack: Attack
+  triggerKill: Kill
   healthBase: {fileID: 0}
+  TimeToDestroy: 1
 --- !u!50 &1443025360
 Rigidbody2D:
   serializedVersion: 4
@@ -5264,6 +5283,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1262093667}
+    - targetCorrespondingSourceObject: {fileID: 8835229685202505509, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1262093668}
   m_SourcePrefab: {fileID: 100100000, guid: 00afc9fb4087652419d090da0b825d97, type: 3}
 --- !u!212 &1717062708 stripped
 SpriteRenderer:
